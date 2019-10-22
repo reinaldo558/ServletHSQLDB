@@ -1,0 +1,41 @@
+CREATE TABLE PERSON (
+   id INT NOT NULL,
+   name VARCHAR(50) NOT NULL,
+   age INT NOT NULL,
+   cod VARCHAR(20),
+   PRIMARY KEY (id) 
+);
+
+
+
+CREATE TABLE PERSON (
+   id IDENTITY ,
+   name VARCHAR(50) NOT NULL,
+   age INT NOT NULL,
+   cod VARCHAR(20),
+   PRIMARY KEY (id) 
+);
+
+
+insert into PERSON values (null, 'Name 2', 25, 'aassdd')
+
+
+
+To start the server:
+	 hsqldb_root > java -classpath .\lib\* org.hsqldb.server.Server --database.0 file:hsqldb/dbs/servlet --dbname.0 servlet
+
+
+To connect from hsql manager: 
+	 jdbc:hsqldb:hsql://localhost/servlet
+
+
+To connect from Class
+	 Class.forName("org.hsqldb.jdbc.JDBCDriver");
+	 Connection con = DriverManager.getConnection("jdbc:hsqldb:hsql://localhost/servlet","SA","");
+	 Statement st = con.createStatement();
+	 st.executeUpdate("insert into PERSON values (null, '"+p.getName()+"', "+p.getAge()+", '"+p.getCod()+"')");
+	 st.close();
+	 con.close();
+
+
+
